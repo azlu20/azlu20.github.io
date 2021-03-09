@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="//db.onlinewebfonts.com/c/6cec834e2e8f2e4206567ed75e1281d4?family=Brandon+Grotesque+Bold" rel="stylesheet" type="text/css"/>
+
+<title> Albie's Webby</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="module">
+    import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+  </script>
+  <link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/googlecode.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+<link rel="stylesheet" href="/path/to/styles/default.css">
+<script src="/path/to/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script src="path/to/highlight.min.js"></script>
+
+<script src="path/to/highlightjs-line-numbers.min.js"></script>
+<script> hljs.initHighlightingOnLoad();</script>
+<script>  hljs.initLineNumbersOnLoad();</script>
+</head>
+<body>
+<style>
+    .hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    text-align: center;
+    color: #CCC;
+    border-right: 5px solid white;
+    vertical-align: top;
+    padding-right: 5px;
+
+    /* your custom style here */
+}
+
+/* for block of code */
+.hljs-ln-code {
+    padding-left: 10px;
+}
+.col a {
+    text-decoration : none; 
+color : rgb(255, 255, 255);
+font-family: "Gotham", "Fette Fraktur", "Adobe Garamond"; }
+.topbanner{
+    background-color: rgb(165, 37, 37);
+    font-family: "Gotham", "Fette Fraktur", "Adobe Garamond";
+    font-weight: 400;
+    font-size: 2em;
+    height: 2em;
+    color: white;
+}
+.testDiv{
+    margin-top: 2em;
+    display: block;
+    visibility: hidden;
+    font-family: "Gotham", "Fette Fraktur", "Adobe Garamond";
+    font-weight: 400;
+    font-size: 5em;
+
+color: rgb(165, 37, 37);
+white-space: nowrap;
+
+}
+.confetti > img {
+    position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left: 0px;
+  top: 0px;
+visibility: hidden;
+}
+.confetti > p {
+position: relative;
+z-index: 2;
+margin-left: 100px;
+}
+.row#top{
+background-color: rgb(165, 37, 37);
+margin-left:auto;
+ margin-right: auto;
+}
+.projectofday{
+    background-color: white;
+    font-family: "Gotham", "Fette Fraktur", "Adobe Garamond";
+    font-weight: 400;
+    font-size: 2em;
+    color: black;
+    visibility: hidden;
+    display: none;
+    width: 15em;
+    margin-top: 1em;
+    margin-left:auto;
+ margin-right: auto;
+}
+.row#dailyprojectcode{
+    background-color: white;
+    margin-left: auto;
+ margin-right: auto;
+ visibility: hidden;
+    display: none;
+    margin-top: 4em;
+}
+.topbanner#dailyprojecttext{
+    background-color: white;
+    font-family: "Gotham", "Fette Fraktur", "Adobe Garamond";
+    font-weight: 400;
+    font-size: 4em;
+    color: black;
+}
+#github{
+    margin-top: -10px;
+margin-left: 60px;
+ margin-right: auto;
+width: 72px;
+height: 72px;
+float:left;
+align-items:center;
+}
+.col#projectofday{
+    margin-left: auto;
+ margin-right: auto;
+}
+.border {
+ border-style:solid;
+ border-color:#CCC;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.container-fluid#slideshow{
+    background-color: white;
+    height: 25em;
+    padding: 0;
+    display: none;
+    margin-top: -100px;
+}
+.container-fluid#slideshow p{
+font-family: "Gotham", "Fette Fraktur", "Adobe Garamond";
+    font-weight: 400;
+    font-size: 3em;
+    color:white;
+
+    
+}
+.prev, .next{
+    color:gray;
+}
+.aboutme{
+    color: rgb(31, 16, 16);
+    margin-left: 50px;
+}
+.portrait{
+    height: 256px;
+    width: 256px;
+    float: right;
+    margin-top: 75px;
+    margin-right: 30px;
+}
+.row#socials{
+    margin-left: 100px;
+
+
+}
+#about{
+    display: none;
+}
+#contact{
+    display: none;
+}
+</style>
+<div class = "row" id = "top">
+<div class = "col">
+<div class = "topbanner">
+<div class = "text-center">
+    <a href="#about">About</a>
+</div>
+
+
+</div>
+</div>
+<div class = "col">
+    <div class = "topbanner">
+    <div class = "text-center">
+        <a href="url">Resume</a>
+    </div>
+    
+    
+    </div>
+    </div>
+    <div class = "col">
+        <div class = "topbanner">
+        <div class = "text-center">
+            <a href="#slideshow">Projects</a>
+        </div>
+        
+        
+        </div>
+        </div>
+        <div class = "col">
+            <div class = "topbanner">
+            <div class = "text-center">
+                <a href="#contact">Contact</a>
+            </div>
+            
+            
+            </div>
+            </div>
+    
+</div>
+<div class = "projectofday" id = "pod">
+        <img id = "github" src = "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt = "daily github"/>
+                <p>Project of the Day</p>
+                <br>
+            </div>
+        <div class = "row">
+            <div class = "col"></div>
+            <div class = "col">
+                <div class = "text-center" style = "font-size: 2.5em;">
+                    <div id = "podone" style = "width:1000px">
+            
+                    </div>
+                    </div>
+            </div>
+            <div class = "col">
+
+            </div>
+        </div>
+
+
+<div class = "row" id = "dailyprojectcode">
+    <div class = "border">
+        <pre><code id ="dailycode" style = "width:1000px;">
+   
+        </code></pre>
+    </div>
+
+</div>
+
+    
+<div class="container-fluid p-3 my-3 ">  
+    <div class = "testDiv">
+    <div class="text-center" id = "you"> You</div>
+    <div class="text-center" id = "have"> Have</div>
+        <p id = "found" class="text-center"> Found </p>
+
+        <div class = "confetti">
+            <img id = "confett" src = "confetti-4.gif" alt = "YAY YOU FOUND ME!"/>
+            <p id = "website" class="text-center"> Albert's Website!</p>
+    </div>
+
+</div>
+</div>
+<div class = "container-fluid" id = "slideshow">
+    <div class = "row" style = "position: absolute; z-index: 2; width: 100%;">
+        <div class = "col-sm-4" >
+            <div class = "text-left" style = "margin-left: 20px;">
+                <a class="prev" onclick="moveLeft()">&#10094;</a>
+            </div>
+         
+            <div class = "text-center" style = "margin-top: 1.5em;">
+                <div id = "codename" style = "color: white; font-size: 2em; text-decoration: underline;">
+                </div>
+                <br>
+                <br>
+                <div id = "codenametwo" style = "color:white; ">
+                </div>
+            </div>
+            </div>
+
+        <div class = "col-sm-4">
+            <div class = "text-center" style>
+                <p style = "color: gray;">Current Projects:</p>
+            
+
+                    </div>
+        </div>
+        <div class = "col-sm-4">
+            <div class = "text-right"> <a class="next" onclick="moveRight()">&#10095;</a></div>
+           
+        </div>
+    </div>
+    
+    <div class="banner-overlay" style = "position: relative; z-index: 1;">
+        <svg width="1000" height="1000" viewBox="0 710 2000.0001 875" position>
+          <defs id="defs4678">
+            <linearGradient
+              xlink:href="#linearGradient31671"
+              id="linearGradient31691"
+              x1="-8.2621472e-07"
+              y1="-93.448524"
+              x2="406.83975"
+              y2="65.433769"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="matrix(3.7817209,0,0,4.9259836,-557.01738,675.97395)"
+            />
+            <linearGradient id="linearGradient31671">
+              <stop style="stop-color:#7a2424;stop-opacity:1;" offset="0" id="stop3163" />
+              <stop style="stop-color:#e62c2c;stop-opacity:0.25" offset="1" id="stop3165" />
+            </linearGradient>
+          </defs>
+          <g id="layer1" transform="matrix(1.3013277,0,0,1.2787721,724.86215,-275.76443)">
+            <path
+              style="fill:url(#linearGradient31691);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.30214572px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+              d="m -557.01738,215.64783 0,782.00018 1536.8919,0 C 604.00052,824.44401 238.53413,619.93369 56.230131,215.64783 Z"
+              id="path3161"
+            />
+          </g>
+        </svg>
+
+
+</div>
+</div>
+<div id = "about" style = "margin-top: 100px; height: 2.5em; position: relative; ">
+    <div class = "text-left">
+        <div class = "aboutme">
+        <img src = "1156 copy.jpg" class = "portrait">
+        <p style = "color:rgb(165, 37, 37); text-decoration: underline; font-family: Gotham, Fette Fraktur, Adobe Garamond; font-size: 3em; margin-left: 0px">About Me</p>
+        <p>
+            Albert is a passionate Computer Science and Math student at Washington University in St. Louis. While maintaining his schoolwork, Albert loves to pursue personal projects such as making Neural Networks and games.
+
+        </p>
+        <br>
+        <p>
+            During his time at Washington University, Albert was involved in the Neuraltechnology Club as well as clubs such as the IEEE. Since collaborating in a group environment brings him joy and productiveness, Albert strives to work with a variety of teams.
+    
+        </p>
+        <br>
+        <p>
+            Currently, Albert has taken advanced computer science classes such as Data Structures and Algorithms and Object Orientated Programming, and is hoping to pursue even more higher level classes such as Parallel Computing and Artificial Intellgience.
+        </p>
+        <br>
+        <p>
+            Outside of work, he is a tennis player that also loves to workout. When he's not playing tennis or running, you can catch likely catch Albert enjoying games such as League of Legends and Super Smash Bros Melee.
+        </p>
+</div>
+</div>
+</div>
+<footer class = "container-fluid" id = "contact">
+    <div class = "row" style = "background-color: rgb(165, 37, 37); margin-top: 100px; height: 10em;">
+            <div class = "col-sm-4" style = "height: 5em; margin-left: 50px;">
+            <p style = "color:white; text-decoration: underline; font-family: Gotham, Fette Fraktur, Adobe Garamond; font-size: 2em; margin-top: 10px">Contact</p>
+            <p style = "color:white;" > +1(847)-393-6299</p>
+            <p style = " color:white;" > a.z.lu@wustl.edu</p>
+            
+    </div>
+
+    <div class = "col" >
+    
+        <a href = "https://www.linkedin.com/in/albert-lu-20/"> <img style = "margin-left: 77%; margin-top: 90px" src="https://icon-library.com/images/white-linkedin-icon-transparent-background/white-linkedin-icon-transparent-background-8.jpg" width = 75px height = 75px></a>
+        <a href = "https://www.linkedin.com/in/albert-lu-20/"> <img style = "margin-left: 87%; margin-top: -100px" src="https://logodix.com/logo/611048.png" width = 60px height = 65px></a>
+    </div>
+</div>
+
+</footer>
+<script src = "test.js"></script>
+</body>
+
+</html>
