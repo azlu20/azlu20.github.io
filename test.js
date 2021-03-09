@@ -135,7 +135,7 @@ request.open('get', 'https://api.github.com/users/azlu20');
 request.onload = test;
 request.send();
 
-var slideshowdata = [` <p style = "font-size:1.5em;"> Explore how I got introduced to Machine Learning and Automation by following my first self-coded Nueral Network!</p>`, 
+var slideshowdata = [` <p style = "font-size:1.5em;"> Explore how I got introduced to Machine Learning and Automation by following my first self-coded Neural Network!</p>`, 
 `<p style = "font-size:1.5em;">Feeling lonely? Come talk to my Automated Bot that responds to your written texts and asks for improvement!</p>`,
  `<p style = "font-size:1.5em;">Fan of MOBAs? Navigate through how I tackle the design of the widely popular League of Legends!</p>`,
   `<p style = "font-size:1.5em;"> Come learn about how I use multithreading and keyboard inputs to recreate a cult classic game: Super Smash Bros Melee</p>`, 
