@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="//db.onlinewebfonts.com/c/6cec834e2e8f2e4206567ed75e1281d4?family=Brandon+Grotesque+Bold" rel="stylesheet" type="text/css"/>
+
+<link rel="stylesheet" href="styles.css">
+<title> Albie's Webby</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="module">
+    import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+  </script>
+  <link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/googlecode.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+
+
+<script>hljs.highlightAll();</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+
+
+
+<script> hljs.initHighlightingOnLoad();</script>
+<script>  hljs.initLineNumbersOnLoad();</script>
+</head>
+<body>
+
+<div class = "row" id = "top">
+<div class = "col">
+<div class = "topbanner">
+<div class = "text-center">
+    <a href="index.html#top">Home</a>
+</div>
+
+
+</div>
+</div>
+<div class = "col">
+    <div class = "topbanner">
+    <div class = "text-center">
+        <a href="about.html">About</a>
+    </div>
+    
+    
+    </div>
+    </div>
+<div class = "col">
+    <div class = "topbanner">
+    <div class = "text-center">
+        <a href="Albert_Lu_2022.pdf">Resume</a>
+    </div>
+    
+    
+    </div>
+    </div>
+    
+    <div class = "col">
+        <div class = "topbanner">
+        <div class = "text-center">
+            <a href="index.html#slideshow">Projects</a>
+        </div>
+    
+        
+        </div>
+        </div>
+        <div class = "col">
+            <div class = "topbanner">
+            <div class = "text-center">
+                <a href="index.html#contact">Contact</a>
+            </div>
+            
+            
+            </div>
+            </div>
+    
+</div>
+
+<div class = "projectofday" id = "pod">
+        <img id = "github" src = "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt = "daily github"/>
+                <p>Project of the Day</p>
+                <br>
+            </div>
+        <div class = "row">
+            <div class = "col"></div>
+            <div class = "col">
+                <div class = "text-center" id = "pod-font">
+                    <div id = "podone">
+            
+                    </div>
+                    </div>
+            </div>
+            <div class = "col">
+
+            </div>
+        </div>
+
+
+<div class = "row" id = "dailyprojectcode">
+    <div class = "border">
+        <pre><code id ="dailycode">
+   
+        </code></pre>
+    </div>
+
+</div>
+
+    
+
+<div class = "container-fluid" id = "slideshow">
+    <div class = "row" id = "slideshow-container">
+        <div class = "col-sm-4" >
+            <div class = "text-left" id = "slideshow-inner">
+                <a class="prev" onclick="moveLeft()">&#10094;</a>
+            </div>
+         
+            <div class = "text-center" id = "slideshow-center">
+                <div id = "codename">
+                </div>
+                <br>
+                <br>
+                <div id = "codenametwo">
+                </div>
+            </div>
+            </div>
+
+        <div class = "col-sm-4">
+            <div class = "text-center" >
+                
+                <p id = "proj">Current Projects: </p>
+            </div>
+        </div>
+        <div class = "col-sm-4">
+            <div class = "text-right"> <a class="next" onclick="moveRight()">&#10095;</a></div>
+           
+        </div>
+    </div>
+    
+    <!-- SVG styling for the slideshow overlay -->
+    <div class="banner-overlay" >
+        <svg width="1000" height="1000" viewBox="0 710 2000.0001 875" position>
+          <defs id="defs4678">
+            <linearGradient
+              xlink:href="#linearGradient31671"
+              id="linearGradient31691"
+              x1="-8.2621472e-07"
+              y1="-93.448524"
+              x2="406.83975"
+              y2="65.433769"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="matrix(3.7817209,0,0,4.9259836,-557.01738,675.97395)"
+            />
+            <linearGradient id="linearGradient31671">
+              <stop style="stop-color:#4E2A84;stop-opacity:1;" offset="0" id="stop3163" />
+              <stop style="stop-color:#E4E0EE;stop-opacity:0.25" offset="1" id="stop3165" />
+            </linearGradient>
+          </defs>
+          <g id="layer1" transform="matrix(1.3013277,0,0,1.2787721,724.86215,-275.76443)">
+            <path
+              style="fill:url(#linearGradient31691);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.30214572px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+              d="m -557.01738,215.64783 0,782.00018 1536.8919,0 C 604.00052,824.44401 238.53413,619.93369 56.230131,215.64783 Z"
+              id="path3161"
+            />
+          </g>
+        </svg>
+
+
+</div>
+
+</div>
+<div class = "row">
+    <div class = "col">
+<div id = "contact-form">
+
+<h2> Send me a message (even though I will probably never read it)
+
+</h2>
+    <div id = "form">
+        <form >
+            <div class = "row">
+                <div class = "col">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname" value="Albert"><br>
+                </div>
+                <div class="col">
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname" value="Lu"><br><br>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col">
+                    <label for="address">Address</label><br>
+                    <input type="text" id="address" name="address" value="1 Sheridan Road"><br>
+                </div>
+                <div class="col">
+                    <label for="zip">Zip Code</label><br>
+                    <input type="text" id="zip" name="zip" value="60201"><br><br>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col">
+                    <label for="cc">Credit Card Number</label><br>
+                    <input type="text" id="cc" name="cc" value="1234-5678-1011-1213"><br>
+                </div>
+                <div class="col">
+                    <label for="cvv">CVV</label><br>
+                    <input type="text" id="cvv" name="cvv" value="123"><br><br>
+                </div>
+            </div>
+            <div class = "row">
+                <p id = "lastquestion">Is this the website you have ever seen (besides my other portfolios?)</p>
+                <input type="radio" id="yes" name="fav_web" value="Yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="fav_web" value="No">
+                <label for="no">No</label>
+                
+            </div>
+
+          
+            <input type="button" value = "submit" onclick="checkSubmission()">
+            <br>
+        </form>
+        <p id ="post-submit"></p>
+    </div>
+    
+</div>
+</div>
+<div class = "col">
+    <img id = "contactus" src = "contactus.png">
+</div>
+</div>
+
+<footer class = "container-fluid" id = "contact">
+
+    <div class = "row" id = "contact-box" >
+            <div class = "col-sm-4" id = "contact-col">
+            <p class = "contact-header">Contact</p>
+
+            <p class = "contact-points" > albertlu2024@u.northwestern.edu</p>
+            <p class = "contact-points">847-393-6299</p>
+            
+    </div>
+
+    <div class = "col" >
+    
+        <a href = "https://www.linkedin.com/in/albert-lu-20/"> <img id = "social-linkedin" src="https://icon-library.com/images/white-linkedin-icon-transparent-background/white-linkedin-icon-transparent-background-8.jpg" width = 75px height = 75px></a>
+        <a href = "albertlu2024@u.northwestern.edu"> <img id = "social-email" src="https://logodix.com/logo/611048.png" width = 60px height = 65px></a>
+        <a href = "https://github.com/azlu20"> <img id = "social-github" src="github_icon.png" width = 40px height = 40px></a>
+    </div>
+</div>
+
+</footer>
+<script src = "script.js"></script>
+</body>
+
+</html>
