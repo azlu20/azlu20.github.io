@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <link href="//db.onlinewebfonts.com/c/6cec834e2e8f2e4206567ed75e1281d4?family=Brandon+Grotesque+Bold" rel="stylesheet" type="text/css"/>
 
@@ -26,11 +26,12 @@
 <script>  hljs.initLineNumbersOnLoad();</script>
 </head>
 <body>
-    <div class = "row" id = "top">
+    <nav aria-label="Main">
+        <div class = "row" id = "top" role="menubar" aria-label="jump-points">
         <div class = "col">
         <div class = "topbanner">
         <div class = "text-center">
-            <a href="index.html">Home</a>
+            <a role="menuitem" href="index.html#top" aria-current="page">Home</a>
         </div>
         
         
@@ -39,7 +40,7 @@
         <div class = "col">
             <div class = "topbanner">
             <div class = "text-center">
-                <a href="about.html">About</a>
+                <a role="menuitem" href="about.html">About</a>
             </div>
             
             
@@ -48,7 +49,7 @@
         <div class = "col">
             <div class = "topbanner">
             <div class = "text-center">
-                <a href="Albert_Lu_2022.pdf">Resume</a>
+                <a role="menuitem" href="Albert_Lu_2022.pdf">Resume</a>
             </div>
             
             
@@ -57,8 +58,8 @@
             
             <div class = "col">
                 <div class = "topbanner">
-                <div class = "text-center">
-                    <a href="index.html#slideshow">Projects</a>
+                <div class = "text-center" aria-current="page">
+                    <a role="menuitem" href="index.html#slideshow">Projects</a>
                 </div>
             
                 
@@ -66,8 +67,8 @@
                 </div>
                 <div class = "col">
                     <div class = "topbanner">
-                    <div class = "text-center">
-                        <a href="index.html#contact">Contact</a>
+                    <div class = "text-center" aria-current="page">
+                        <a  role="menuitem" href="index.html#contact">Contact</a>
                     </div>
                     
                     
@@ -75,45 +76,51 @@
                     </div>
             
         </div>
+        </nav>
+        <section>
         <div class = "text-center">
-            <div class = "lunar">
+            <div class = "lunar" aria-label="lunar_project">
                 <h1>Lunar Games Studio</h1>
                 
-                <p>We are designing a resource centric puzzle game where previously encountered enemies suddenly become tools to solve the puzzle.</p>
-                <p>I had this game concept in mind for a while, but it was only until I took CS 376, Game Dev, and CS 377, Game Dev Studio, that I wanted to pursue this idea seriously.</p>
-                <p>Our team of 8 people consisting of artists, designers, and coders have put in countless hours, stumbling our way into a playable product.</p>
-                <p>We started this project in Nov 2021, and though we made a lot of progress, there still is a mountain of work ahead of us.</p>
-                <p>Nonetheless, I still look forward to the creative outputs we are trying to get the players to express.</p>
-                <img src="lunar_1.png" height="300" width="600" />
-                <img src="lunar_2.jpg" height="300" width="600" />
-                <img src="lunar_3.jpg" height="300" width="600" />
-                <img src="lunar_4.jpg" height="300" width="600" />
-                <img src="lunar_5.png" height="300" width="600" />
-                <img src="lunar_initial.jpg" height="300" width="600" />
+                <p class = "lunar_desc">We are designing a resource centric puzzle game where previously encountered enemies suddenly become tools to solve the puzzle.</p>
+                <p class = "lunar_desc">I had this game concept in mind for a while, but it was only until I took CS 376, Game Dev, and CS 377, Game Dev Studio, that I wanted to pursue this idea seriously.</p>
+                <p class = "lunar_desc">Our team of 8 people consisting of artists, designers, and coders have put in countless hours, stumbling our way into a playable product.</p>
+                <p class = "lunar_desc">We started this project in Nov 2021, and though we made a lot of progress, there still is a mountain of work ahead of us.</p>
+                <p class = "lunar_desc">Nonetheless, I still look forward to the creative outputs we are trying to get the players to express.</p>
+                <img alt="pile_of_bones" src="lunar_1.png" height="300" width="600" />
+                <img alt = "dragon_skull" src="lunar_2.jpg" height="300" width="600" />
+                <img alt = "limbo area" src="lunar_3.jpg" height="300" width="600" />
+                <img alt = "level_design" src="lunar_4.jpg" height="300" width="600" />
+                <img alt = "chambers" src="lunar_5.png" height="300" width="600" />
+                <img alt = "temple_secrets" src="lunar_initial.jpg" height="300" width="600" />
             </div>
 
 
 
         </div>
-
-        <footer class = "container-fluid" id = "contact">
-            <div class = "row" style = "background-color: rgb(078, 042, 132); margin-top: 100px; height: 10em;">
-                    <div class = "col-sm-4" style = "height: 5em; margin-left: 50px;">
-                    <p style = "color:white; text-decoration: underline; font-family: Gotham, Fette Fraktur, Adobe Garamond; font-size: 2em; margin-top: 10px">Contact</p>
-        
-                    <p style = " color:white;" > albertlu2024@u.northwestern.edu</p>
-                    
-            </div>
-        
-            <div class = "col" >
+    </section>
+        <section>
+            <footer class = "container-fluid" id = "contact">
             
-                <a href = "https://www.linkedin.com/in/albert-lu-20/"> <img style = "margin-left: 77%; margin-top: 90px" src="https://icon-library.com/images/white-linkedin-icon-transparent-background/white-linkedin-icon-transparent-background-8.jpg" width = 75px height = 75px></a>
-                <a href = "albertlu2024@u.northwestern.edu"> <img style = "margin-left: 87%; margin-top: -100px" src="https://logodix.com/logo/611048.png" width = 60px height = 65px></a>
-                <a href = "https://github.com/azlu20"> <img style = "margin-left: 69%; margin-top: -160px" src="github_icon.png" width = 40px height = 40px></a>
+                <div class = "row" id = "contact-box" >
+                        <div class = "col-sm-4" id = "contact-col">
+                        <h2 class = "contact-header">Contact</h2>
+            
+                        <p aria-label = "contact" class = "contact-points" > albertlu2024@u.northwestern.edu</p>
+                        <p aria-label = "contact" class = "contact-points">847-393-6299</p>
+                        
+                </div>
+            
+                <div class = "col" >
+                
+                    <a href = "https://www.linkedin.com/in/albert-lu-20/"> <img alt = "linkedin-redirect" type = "button" id = "social-linkedin" src="https://icon-library.com/images/white-linkedin-icon-transparent-background/white-linkedin-icon-transparent-background-8.jpg" width = 75px height = 75px></a>
+                    <a href = "albertlu2024@u.northwestern.edu"> <img alt = "email-redirect" type = "button" id = "social-email" src="https://logodix.com/logo/611048.png" width = 60px height = 65px></a>
+                    <a href = "https://github.com/azlu20"> <img alt = "github-redirect" type = "button" id = "social-github" src="github_icon.png" width = 40px height = 40px></a>
+                </div>
             </div>
-        </div>
-        
-        </footer>
+            
+            </footer>
+            </section>
 </body>
 
 </html>

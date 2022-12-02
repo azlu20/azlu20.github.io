@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  lang="en">
 <head>
     <link href="//db.onlinewebfonts.com/c/6cec834e2e8f2e4206567ed75e1281d4?family=Brandon+Grotesque+Bold" rel="stylesheet" type="text/css"/>
 
@@ -26,12 +26,12 @@
 <script>  hljs.initLineNumbersOnLoad();</script>
 </head>
 <body>
-
-<div class = "row" id = "top">
+    <nav aria-label="Main">
+<div class = "row" id = "top" role="menubar" aria-label="jump-points">
 <div class = "col">
 <div class = "topbanner">
 <div class = "text-center">
-    <a href="index.html#top">Home</a>
+    <a role="menuitem" href="index.html#top" aria-current="page">Home</a>
 </div>
 
 
@@ -40,7 +40,7 @@
 <div class = "col">
     <div class = "topbanner">
     <div class = "text-center">
-        <a href="about.html">About</a>
+        <a role="menuitem" href="about.html">About</a>
     </div>
     
     
@@ -49,7 +49,7 @@
 <div class = "col">
     <div class = "topbanner">
     <div class = "text-center">
-        <a href="Albert_Lu_2022.pdf">Resume</a>
+        <a role="menuitem" href="Albert_Lu_2022.pdf">Resume</a>
     </div>
     
     
@@ -58,8 +58,8 @@
     
     <div class = "col">
         <div class = "topbanner">
-        <div class = "text-center">
-            <a href="index.html#slideshow">Projects</a>
+        <div class = "text-center" aria-current="page">
+            <a role="menuitem" href="index.html#slideshow">Projects</a>
         </div>
     
         
@@ -67,8 +67,8 @@
         </div>
         <div class = "col">
             <div class = "topbanner">
-            <div class = "text-center">
-                <a href="index.html#contact">Contact</a>
+            <div class = "text-center" aria-current="page">
+                <a  role="menuitem" href="index.html#contact">Contact</a>
             </div>
             
             
@@ -76,10 +76,11 @@
             </div>
     
 </div>
-
-<div class = "projectofday" id = "pod">
+</nav>
+<section>
+<div class = "projectofday" id = "pod" aria-label="project_of_day">
         <img id = "github" src = "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt = "daily github"/>
-                <p>Project of the Day</p>
+                <h1>Project of the Day</h1>
                 <br>
             </div>
         <div class = "row">
@@ -99,15 +100,17 @@
 
 <div class = "row" id = "dailyprojectcode">
     <div class = "border">
-        <pre><code id ="dailycode">
+        <!-- Unsure why this is giving a warning when semantic text of code is being used as well as role being set to presentation -->
+        <pre><code role="presentation" aria-label="dailycode" id ="dailycode"> 
    
         </code></pre>
     </div>
 
 </div>
 
-    
+</section>
 
+<section>
 <div class = "container-fluid" id = "slideshow">
     <div class = "row" id = "slideshow-container">
         <div class = "col-sm-4" >
@@ -128,7 +131,7 @@
         <div class = "col-sm-4">
             <div class = "text-center" >
                 
-                <p id = "proj">Current Projects: </p>
+                <h2 id = "proj">Current Projects: </h2>
             </div>
         </div>
         <div class = "col-sm-4">
@@ -169,6 +172,8 @@
 </div>
 
 </div>
+</section>
+<section>
 <div class = "row">
     <div class = "col">
 <div id = "contact-form">
@@ -177,8 +182,11 @@
 
 </h2>
     <div id = "form">
+        
         <form >
-            <div class = "row">
+            <div role="group" aria-labelledby="shipping_info">
+                <div id = "shipping_info">
+            <div class = "row" aria-label="name_entry">
                 <div class = "col">
                     <label for="fname">First name:</label><br>
                     <input type="text" id="fname" name="fname" value="Albert"><br>
@@ -188,7 +196,7 @@
                     <input type="text" id="lname" name="lname" value="Lu"><br><br>
                 </div>
             </div>
-            <div class = "row">
+            <div class = "row" aria-label="address_entry">
                 <div class = "col">
                     <label for="address">Address</label><br>
                     <input type="text" id="address" name="address" value="1 Sheridan Road"><br>
@@ -198,7 +206,7 @@
                     <input type="text" id="zip" name="zip" value="60201"><br><br>
                 </div>
             </div>
-            <div class = "row">
+            <div class = "row" aria-label="credit_card_entry">
                 <div class = "col">
                     <label for="cc">Credit Card Number</label><br>
                     <input type="text" id="cc" name="cc" value="1234-5678-1011-1213"><br>
@@ -208,17 +216,24 @@
                     <input type="text" id="cvv" name="cvv" value="123"><br><br>
                 </div>
             </div>
-            <div class = "row">
-                <p id = "lastquestion">Is this the website you have ever seen (besides my other portfolios?)</p>
-                <input type="radio" id="yes" name="fav_web" value="Yes">
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" name="fav_web" value="No">
-                <label for="no">No</label>
-                
+        </div>
+    </div>
+
+                <fieldset>
+                    <legend aria-label="fav_website_question">Is this the website you have ever seen (besides my other portfolios?)</legend>
+                    <div>
+                <input type="radio" id="yes_response" name="response_fav_website" value="Yes" checked="false">
+                <label for="yes_response">Yes</label>
             </div>
+            <div>
+                <input type="radio" id="no_response" name="response_fav_website" value="No" checked="false">
+                <label for="no_response">No</label>
+            </div>
+                </fieldset>
+           
 
           
-            <input type="button" value = "submit" onclick="checkSubmission()">
+            <input type="button" aria-label="submit" value = "submit" onclick="checkSubmission()">
             <br>
         </form>
         <p id ="post-submit"></p>
@@ -227,30 +242,32 @@
 </div>
 </div>
 <div class = "col">
-    <img id = "contactus" src = "contactus.png">
+    <img id = "contactus" alt="contact-us" src = "contactus.png">
 </div>
 </div>
-
+</section>
+<section>
 <footer class = "container-fluid" id = "contact">
 
     <div class = "row" id = "contact-box" >
             <div class = "col-sm-4" id = "contact-col">
-            <p class = "contact-header">Contact</p>
+            <h2 class = "contact-header">Contact</h2>
 
-            <p class = "contact-points" > albertlu2024@u.northwestern.edu</p>
-            <p class = "contact-points">847-393-6299</p>
+            <p aria-label = "contact" class = "contact-points" > albertlu2024@u.northwestern.edu</p>
+            <p aria-label = "contact" class = "contact-points">847-393-6299</p>
             
     </div>
 
     <div class = "col" >
     
-        <a href = "https://www.linkedin.com/in/albert-lu-20/"> <img id = "social-linkedin" src="https://icon-library.com/images/white-linkedin-icon-transparent-background/white-linkedin-icon-transparent-background-8.jpg" width = 75px height = 75px></a>
-        <a href = "albertlu2024@u.northwestern.edu"> <img id = "social-email" src="https://logodix.com/logo/611048.png" width = 60px height = 65px></a>
-        <a href = "https://github.com/azlu20"> <img id = "social-github" src="github_icon.png" width = 40px height = 40px></a>
+        <a href = "https://www.linkedin.com/in/albert-lu-20/"> <img alt = "linkedin-redirect" type = "button" id = "social-linkedin" src="https://icon-library.com/images/white-linkedin-icon-transparent-background/white-linkedin-icon-transparent-background-8.jpg" width = 75px height = 75px></a>
+        <a href = "albertlu2024@u.northwestern.edu"> <img alt = "email-redirect" type = "button" id = "social-email" src="https://logodix.com/logo/611048.png" width = 60px height = 65px></a>
+        <a href = "https://github.com/azlu20"> <img alt = "github-redirect" type = "button" id = "social-github" src="github_icon.png" width = 40px height = 40px></a>
     </div>
 </div>
 
 </footer>
+</section>
 <script src = "script.js"></script>
 </body>
 

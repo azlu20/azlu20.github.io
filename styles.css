@@ -128,7 +128,7 @@ body {
 font-family: "Gotham", "Fette Fraktur", "Adobe Garamond";
     font-weight: 400;
     font-size: 3em;
-    color:white;
+    color:black;
 
     
 }
@@ -138,7 +138,7 @@ font-family: "Gotham", "Fette Fraktur", "Adobe Garamond";
 }
 #proj{
     color: black !important;
-    font-weight: bolder;
+    font-size: 3em;
    
 }
 .prev, .next{
@@ -231,10 +231,11 @@ background-color: rgb(078, 042, 132); margin-top: 100px; height: 10em;
     margin-top: 1.5em;
 }
 #codename{
-    color: white; font-size: 2em; text-decoration: underline;
+    color: black; font-size: 2em;
+     /* text-decoration: underline; */
 }
 #codenametwo{
-    color:white;
+    color:black;
 }
 #social-linkedin{
     margin-left: 77%; margin-top: 90px
@@ -244,4 +245,7 @@ background-color: rgb(078, 042, 132); margin-top: 100px; height: 10em;
 }
 #social-github{
     margin-left: 69%; margin-top: -160px
+}
+.bio-link{
+    color:darkblue;
 }

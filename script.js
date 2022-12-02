@@ -14,6 +14,7 @@ function startup(){
     displayDailyCode();
     displayCodeName(0);
 
+
 }
 
 function startconfetti(){
@@ -55,8 +56,9 @@ function checkSubmission(){
     }
     if(isNaN(cvv) || cvv.length != 3){
         postSubmit.innerHTML = "CVV must be 3 digits of ints. You're so close to greatness, just a little more."
+        return;
     }
-    if(!document.getElementById("yes").checked){
+    if(!document.getElementById("yes_response").checked){
         postSubmit.innerHTML = "Wrong or no button selected for last question. Please revise your answer 😊"
         return;
     }
@@ -64,49 +66,61 @@ function checkSubmission(){
 
 }
 function reSubmit(){
-    var resubmit = `<form >
-    <div class = "row">
-        <div class = "col">
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" value="Albert"><br>
-        </div>
-        <div class="col">
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" value="Lu"><br><br>
-        </div>
-    </div>
-    <div class = "row">
-        <div class = "col">
-            <label for="address">Address</label><br>
-            <input type="text" id="address" name="address" value="1 Sheridan Road"><br>
-        </div>
-        <div class="col">
-            <label for="zip">Zip Code</label><br>
-            <input type="text" id="zip" name="zip" value="60201"><br><br>
-        </div>
-    </div>
-    <div class = "row">
-        <div class = "col">
-            <label for="cc">Credit Card Number</label><br>
-            <input type="text" id="cc" name="cc" value="1234-5678-1011-1213"><br>
-        </div>
-        <div class="col">
-            <label for="cvv">CVV</label><br>
-            <input type="text" id="cvv" name="cvv" value="123"><br><br>
-        </div>
-    </div>
-    <div class = "row">
-        <p id = "lastquestion">Is this the website you have ever seen (besides my other portfolios?)</p>
-        <input type="radio" id="yes" name="fav_web" value="Yes">
-        <label for="yes">Yes</label>
-        <input type="radio" id="no" name="fav_web" value="No">
-        <label for="no">No</label>
+    var resubmit = `<div id = "form">
         
+    <form >
+        <div role="group" aria-labelledby="shipping_info">
+            <div id = "shipping_info">
+        <div class = "row" aria-label="name_entry">
+            <div class = "col">
+                <label for="fname">First name:</label><br>
+                <input type="text" id="fname" name="fname" value="Albert"><br>
+            </div>
+            <div class="col">
+                <label for="lname">Last name:</label><br>
+                <input type="text" id="lname" name="lname" value="Lu"><br><br>
+            </div>
+        </div>
+        <div class = "row" aria-label="address_entry">
+            <div class = "col">
+                <label for="address">Address</label><br>
+                <input type="text" id="address" name="address" value="1 Sheridan Road"><br>
+            </div>
+            <div class="col">
+                <label for="zip">Zip Code</label><br>
+                <input type="text" id="zip" name="zip" value="60201"><br><br>
+            </div>
+        </div>
+        <div class = "row" aria-label="credit_card_entry">
+            <div class = "col">
+                <label for="cc">Credit Card Number</label><br>
+                <input type="text" id="cc" name="cc" value="1234-5678-1011-1213"><br>
+            </div>
+            <div class="col">
+                <label for="cvv">CVV</label><br>
+                <input type="text" id="cvv" name="cvv" value="123"><br><br>
+            </div>
+        </div>
     </div>
+</div>
 
-  
-    <input type="button" value = "submit" onclick="checkSubmission()">
-</form>
+            <fieldset>
+                <legend aria-label="fav_website_question">Is this the website you have ever seen (besides my other portfolios?)</legend>
+                <div>
+            <input type="radio" id="yes_response" name="response_fav_website" value="Yes" checked="false">
+            <label for="yes_response">Yes</label>
+        </div>
+        <div>
+            <input type="radio" id="no_response" name="response_fav_website" value="No" checked="false">
+            <label for="no_response">No</label>
+        </div>
+            </fieldset>
+       
+
+      
+        <input type="button" aria-label="submit" value = "submit" onclick="checkSubmission()">
+        <br>
+    </form>
 <p id ="post-submit"></p>`
 document.getElementById("form").innerHTML = resubmit;
 }
@@ -321,10 +335,10 @@ var codenames = [` <a class = "text-center" style = "font-size: 1.5em; margin-to
 ` <a class = "text-center" style = "font-size: 1.5em; margin-top: -20px; color:black;" href = "https://github.com/azlu20/TheDailyDabble">Daily Dabble: Definitely Not Melee</a>`,
 ` <a class = "text-center" style = "font-size: 1.5em; margin-top: -20px; color:black;">Lunar Games Studio</a>`];
 
-var codenamestwo = [` <a  style = "color:white" href = "project.html">Lunar Games Studio</a>`, 
-` <a  style = "color:white" href = "https://github.com/azlu20/AutomatedBot">Automated Bot</a>`, ` <a  style = "color:white" href = "https://github.com/azlu20/LeagueOfLegendsPrototype">League of Legends Prototype</a>`, 
-` <a  style = "color:white" href = "https://github.com/azlu20/TheDailyDabble">Daily Dabble: Definitely Not Melee</a>`,
-` <a  style = "color:white" href = "https://github.com/azlu20/AlbiesWebby">This Website</a>`];
+var codenamestwo = [` <a  style = "color:black" href = "project.html">Lunar Games Studio</a>`, 
+` <a  style = "color:black" href = "https://github.com/azlu20/AutomatedBot">Automated Bot</a>`, ` <a  style = "color:black" href = "https://github.com/azlu20/LeagueOfLegendsPrototype">League of Legends Prototype</a>`, 
+` <a  style = "color:black" href = "https://github.com/azlu20/TheDailyDabble">Daily Dabble: Definitely Not Melee</a>`,
+` <a  style = "color:black" href = "https://github.com/azlu20/AlbiesWebby">This Website</a>`];
 
 var max = codenames.length-1;
 startup();

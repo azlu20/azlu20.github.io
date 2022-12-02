@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
 <head>
     <link href="//db.onlinewebfonts.com/c/6cec834e2e8f2e4206567ed75e1281d4?family=Brandon+Grotesque+Bold" rel="stylesheet" type="text/css"/>
 
@@ -26,11 +26,12 @@
 <script>  hljs.initLineNumbersOnLoad();</script>
 </head>
 <body>
-    <div class = "row" id = "top">
+    <nav aria-label="Main">
+        <div class = "row" id = "top" role="menubar" aria-label="jump-points">
         <div class = "col">
         <div class = "topbanner">
         <div class = "text-center">
-            <a href="index.html">Home</a>
+            <a role="menuitem" href="index.html#top" aria-current="page">Home</a>
         </div>
         
         
@@ -39,7 +40,7 @@
         <div class = "col">
             <div class = "topbanner">
             <div class = "text-center">
-                <a href="about.html">About</a>
+                <a role="menuitem" href="about.html">About</a>
             </div>
             
             
@@ -48,7 +49,7 @@
         <div class = "col">
             <div class = "topbanner">
             <div class = "text-center">
-                <a href="Albert_Lu_2022.pdf">Resume</a>
+                <a role="menuitem" href="Albert_Lu_2022.pdf">Resume</a>
             </div>
             
             
@@ -57,8 +58,8 @@
             
             <div class = "col">
                 <div class = "topbanner">
-                <div class = "text-center">
-                    <a href="index.html#slideshow">Projects</a>
+                <div class = "text-center" aria-current="page">
+                    <a role="menuitem" href="index.html#slideshow">Projects</a>
                 </div>
             
                 
@@ -66,8 +67,8 @@
                 </div>
                 <div class = "col">
                     <div class = "topbanner">
-                    <div class = "text-center">
-                        <a href="index.html#contact">Contact</a>
+                    <div class = "text-center" aria-current="page">
+                        <a  role="menuitem" href="index.html#contact">Contact</a>
                     </div>
                     
                     
@@ -75,48 +76,52 @@
                     </div>
             
         </div>
+        </nav>
+        <main>
         <div class = "text-center">
-            <div class = "bio">
+            <div class = "bio" aria-label="biography">
                 <h1>Biography</h1>
-                <p>I like to right click onto minions.</p>
-                <p>I don't have much else to say so here are some other cool links.</p>
-                <a href="https://ambitious-rock-07131e110.azurestaticapps.net/">This used to have a good URL, but I forgot to renew it. Also I changed this up too many times, so this kinda doesn't work on mobile anymore. Made with Angular.</a>
+                <p class = "bio-text">I like to right click onto minions.</p>
+                <p class = "bio-text">I don't have much else to say so here are some other cool links.</p>
+                <a class = "bio-link" href="https://ambitious-rock-07131e110.azurestaticapps.net/">This used to have a good URL, but I forgot to renew it. Also I changed this up too many times, so this kinda doesn't work on mobile anymore. Made with Angular.</a>
                 <br>
                 <br>
-                <a href="http://mostbasedfortranenjoyer-a1.glitch.me/">A portfolio I made for CS 396. I personally think this is the best one out of my all portfolios.</a>
+                <a class = "bio-link"href="http://mostbasedfortranenjoyer-a1.glitch.me/">A portfolio I made for CS 396. I personally think this is the best one out of my all portfolios.</a>
                 <br>
                 <br>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Here is how I solved P vs NP.</a>
+                <a class = "bio-link"href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Here is how I solved P vs NP.</a>
                 <br>
                 <br>
-                <p>Here is a cool (externally integrated) video I think that is representative of me.</p>
-                <iframe width="360" height="300"
-                src="https://www.youtube.com/watch?v=fx2Z5ZD_Rbo">
-                </iframe> 
+                <p class="bio-text">Here is a cool (externally integrated) video I think that is representative of me.</p>
+ 
+                <iframe alt = "video-nothing" width="360" height="300" src="https://www.youtube.com/embed/n4R2E7O-Ngo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             
         </div>
-
-        <footer class = "container-fluid" id = "contact">
-            <div class = "row" style = "background-color: rgb(078, 042, 132); margin-top: 100px; height: 10em;">
-                    <div class = "col-sm-4" style = "height: 5em; margin-left: 50px;">
-                    <p class = "contact-header">Contact</p>
-        
-                    <p class = "contact-points" > albertlu2024@u.northwestern.edu</p>
-                    <p class = "contact-points">847-393-6299</p>
-                    
-            </div>
-        
-            <div class = "col" >
+    </main>
+        <section>
+            <footer class = "container-fluid" id = "contact">
             
-                <a href = "https://www.linkedin.com/in/albert-lu-20/"> <img style = "margin-left: 77%; margin-top: 90px" src="https://icon-library.com/images/white-linkedin-icon-transparent-background/white-linkedin-icon-transparent-background-8.jpg" width = 75px height = 75px></a>
-                <a href = "albertlu2024@u.northwestern.edu"> <img style = "margin-left: 87%; margin-top: -100px" src="https://logodix.com/logo/611048.png" width = 60px height = 65px></a>
-                <a href = "https://github.com/azlu20"> <img style = "margin-left: 69%; margin-top: -160px" src="github_icon.png" width = 40px height = 40px></a>
+                <div class = "row" id = "contact-box" >
+                        <div class = "col-sm-4" id = "contact-col">
+                        <h2 class = "contact-header">Contact</h2>
+            
+                        <p aria-label = "contact" class = "contact-points" > albertlu2024@u.northwestern.edu</p>
+                        <p aria-label = "contact" class = "contact-points">847-393-6299</p>
+                        
+                </div>
+            
+                <div class = "col" >
+                
+                    <a href = "https://www.linkedin.com/in/albert-lu-20/"> <img alt = "linkedin-redirect" type = "button" id = "social-linkedin" src="https://icon-library.com/images/white-linkedin-icon-transparent-background/white-linkedin-icon-transparent-background-8.jpg" width = 75px height = 75px></a>
+                    <a href = "albertlu2024@u.northwestern.edu"> <img alt = "email-redirect" type = "button" id = "social-email" src="https://logodix.com/logo/611048.png" width = 60px height = 65px></a>
+                    <a href = "https://github.com/azlu20"> <img alt = "github-redirect" type = "button" id = "social-github" src="github_icon.png" width = 40px height = 40px></a>
+                </div>
             </div>
-        </div>
-        
-        </footer>
+            
+            </footer>
+            </section>
 </body>
 
 </html>
