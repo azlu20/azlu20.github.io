@@ -248,4 +248,12 @@ background-color: rgb(078, 042, 132); margin-top: 100px; height: 10em;
 }
 .bio-link{
     color:darkblue;
+    font-family: "Gotham", "Fette Fraktur", "Adobe Garamond";
+    font-size: 1.5em;
+
+}
+.bio-text{
+    font-family: "Gotham", "Fette Fraktur", "Adobe Garamond";
+    font-size: 1.5em;
+    color: black;
 }
