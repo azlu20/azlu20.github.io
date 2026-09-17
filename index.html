@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080807">
+<title>The Diary of T. M. Riddle</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=IM+Fell+English:ital@0;1&family=UnifrakturCook:wght@700&display=swap');
+:root{--paper:#d9c590;--ink:#211711;--green:#0d1a15;--gold:#b59454;--red:#651b22}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#050605}
+body{color:#d8c99e;font-family:"IM Fell English",Georgia,serif;background:radial-gradient(circle at 50% 18%,#1c3228,#0b1410 36%,#030403 80%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:radial-gradient(#fff .5px,transparent .7px);background-size:4px 4px}
+button,input{font:inherit}.hidden{display:none!important}
+#intro{min-height:100vh;display:grid;place-items:center;text-align:center;padding:25px}.intro{max-width:700px}
+.seal{width:108px;height:108px;border:1px solid var(--gold);transform:rotate(45deg);margin:0 auto 38px;display:grid;place-items:center;box-shadow:0 0 40px #000}
+.seal span{transform:rotate(-45deg);font:700 45px UnifrakturCook;color:var(--gold)}
+.kicker{font:600 11px Cinzel;letter-spacing:5px;color:#9e8959}
+h1{font:600 clamp(36px,8vw,70px) Cinzel;margin:17px 0 5px;letter-spacing:2px}.sub{font-size:21px;font-style:italic;color:#a99b78}
+.enter{margin-top:46px;border:0;border-bottom:1px solid #7d693f;background:none;color:#c6a862;padding:12px 25px;cursor:pointer;font:600 12px Cinzel;letter-spacing:3px}
+.tiny{font-size:12px;color:#706448;margin-top:34px;opacity:.65}
+#game{min-height:100vh;padding:18px 14px 55px}.frame{width:min(1040px,100%);margin:auto}
+.chrome{height:45px;display:flex;justify-content:space-between;align-items:center;color:#75694f;font:10px Cinzel;letter-spacing:2px}.chrome b{color:#a68d55}
+.book{position:relative;width:min(900px,100%);margin:auto;min-height:690px;padding:54px clamp(25px,7vw,78px) 62px;color:var(--ink);background:radial-gradient(circle at 40% 25%,#efdfb0,#d9c38c 58%,#b69a60);border:1px solid #806438;box-shadow:0 35px 100px #000d,inset 0 0 85px #5f421d1f}
+.book:before{content:"";position:absolute;inset:12px;border:1px solid #856b3e88;pointer-events:none}.page{min-height:570px;position:relative}
+.label{text-align:center;font:600 10px Cinzel;letter-spacing:4px;color:#76592e}h2{font:600 clamp(29px,5vw,45px) Cinzel;text-align:center;margin:15px 0 7px}.rule{height:1px;background:#8a6d3e;width:95px;margin:17px auto 30px}
+.prose{font-size:21px;line-height:1.72}.prose p{margin:0 0 20px}.drop:first-letter{float:left;font:700 56px Cinzel;line-height:.75;margin:8px 7px 0 0;color:var(--red)}
+.center{text-align:center}.page-number{position:absolute;right:4px;bottom:-5px;color:#75603b;font-style:italic}
+.btn{border:1px solid #947846;background:#16261f;color:#d9c38c;padding:12px 18px;font:600 10px Cinzel;letter-spacing:2px;cursor:pointer}.btn:hover{background:#223a2e}
+.feedback{text-align:center;height:26px;margin-top:12px;font-style:italic}.bad{color:#7a272d}.good{color:#48634e}
+
+/* EMPTY PAGE + REVEALER */
+.empty-page{height:540px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;cursor:none}.second-empty{cursor:pointer;display:block;padding:0;min-height:570px;background:inherit}
+.second-ink{position:absolute;inset:0;padding:42px clamp(25px,7vw,78px);opacity:0;transform:scale(.985);transition:opacity .8s,transform .8s;overflow:auto}
+.second-empty.revealed .second-ink{opacity:1;transform:scale(1)}
+.second-veil{position:absolute;inset:0;z-index:10;display:grid;place-items:center;background:inherit;transition:opacity .7s,visibility .7s}
+.second-veil:before{content:"";position:absolute;inset:13px;border:1px solid #856b3e88}
+.second-veil .veil-mark{font-size:25px;color:#80683d;opacity:.5}
+.second-empty.revealed .second-veil{opacity:0;visibility:hidden;pointer-events:none}
+.clock{touch-action:none}
+.clock *{user-select:none;-webkit-user-drag:none}
+.clock:not(.minute-unlocked) .minute{pointer-events:none;opacity:.55}
+
+.empty-page:before{content:none}
+.empty-prompt{text-align:center;color:#8e774e;opacity:.48;font-style:italic;font-size:17px;pointer-events:none;z-index:1}
+.revealer{
+ position:absolute;width:125px;height:125px;border-radius:50%;z-index:5;display:none;pointer-events:none;
+ border:1px solid #e6d39b;box-shadow:0 0 28px #fff5,inset 0 0 25px #fff3;
+ background:radial-gradient(circle,#fff7 0,#fff1 58%,#a98b4b44 100%);
+ transform:translate(-50%,-50%);
+}
+.empty-page.active .revealer{display:block}
+.hidden-ink{
+ position:absolute;inset:55px 35px;color:transparent;opacity:0;
+ text-align:center;font-size:20px;line-height:1.85;z-index:2;pointer-events:none;
+}
+.hidden-ink.revealed{color:#60492b;opacity:1}
+.hidden-ink b{color:#651b22}
+.scan-progress{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);font-size:12px;color:#7b6339;font-style:italic;opacity:.7;pointer-events:none}
+
+/* CIPHER */
+.puzzle{margin:28px auto;padding:25px;max-width:720px;background:#101512;color:#d5c594;border:1px solid #806b40;box-shadow:inset 0 0 35px #000}
+.cipher{text-align:center;font:700 clamp(19px,4vw,30px) Cinzel;letter-spacing:5px;padding:18px 5px;border-bottom:1px solid #655536}
+.clue{text-align:center;font-style:italic;color:#aa9b73;font-size:17px;line-height:1.65;margin:18px auto 0;max-width:590px}
+.row{display:flex;gap:9px;max-width:590px;margin:20px auto 0}.row input{flex:1;min-width:0;background:#eadbb3;border:1px solid #846839;color:#201711;padding:12px;font-size:18px;outline:0}
+.shake{animation:shake .3s}@keyframes shake{25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-3px)}}
+
+/* CLOCK */
+.clock-wrap{margin:28px auto 0;display:flex;align-items:center;flex-direction:column}
+.clock{width:min(315px,75vw);aspect-ratio:1;border-radius:50%;position:relative;border:5px double #74572c;background:radial-gradient(circle,#ead9ab 0 63%,#c2a96d 64% 67%,#e1c991 68%);box-shadow:0 10px 30px #0005,inset 0 0 18px #63471f;touch-action:none}
+.num{position:absolute;inset:0;font:700 17px Cinzel;color:#3d2b1c}.num span{position:absolute;transform:translate(-50%,-50%)}
+.hand{position:absolute;left:50%;bottom:50%;transform-origin:50% 100%;z-index:4;border-radius:4px 4px 0 0;cursor:grab}
+.hour{height:27%;width:5px;background:#422d1d}.minute{height:38%;width:3px;background:#6b1d23}
+.clock:after{content:"";position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;background:var(--red);transform:translate(-50%,-50%);z-index:6}
+.clock-prose{max-width:570px;text-align:center;margin:20px auto 0;font-size:19px;line-height:1.55;color:#654c2d;font-style:italic}
+.clock-note{font-size:14px;color:#78603c;margin-top:10px;text-align:center;font-style:italic}
+.final{text-align:center;margin-top:30px;color:var(--red);font:700 clamp(27px,6vw,48px) Cinzel;animation:appear 1.8s both}
+@keyframes appear{from{opacity:0;filter:blur(5px);clip-path:inset(0 100% 0 0)}to{opacity:1;filter:none;clip-path:inset(0)}}
+.final-sub{text-align:center;font-style:italic;color:#654c2d;margin-top:8px;font-size:17px}
+@media(max-width:600px){.prose{font-size:19px}.empty-page{height:580px}.row{flex-direction:column}.row .btn{width:100%}}
+
+
+/* Magical revealer object */
+.revealer-object{
+ position:absolute;z-index:20;width:76px;height:30px;border-radius:5px;
+ background:linear-gradient(135deg,#eee7cf,#a99b7a 45%,#5b5547);
+ border:2px solid #4b463a;box-shadow:0 5px 10px #0006,inset 0 2px 3px #fff8;
+ transform:rotate(-9deg);cursor:grab;user-select:none;-webkit-user-drag:none;
+ display:flex;align-items:center;justify-content:center;
+ font:700 9px Cinzel;letter-spacing:1px;color:#3d382f;
+}
+.revealer-object:before{
+ content:"";position:absolute;left:8px;right:8px;top:7px;height:1px;background:#625c4c88;
+ box-shadow:0 6px #625c4c55,0 12px #625c4c44;
+}
+.revealer-object span{position:relative;background:#d9cda9dd;padding:1px 4px}
+.revealer-object.dragging{cursor:grabbing;transform:rotate(-9deg) scale(1.04);box-shadow:0 9px 18px #0008}
+.revealer-tray{
+ position:absolute;z-index:21;right:28px;bottom:24px;width:135px;height:72px;
+ border:1px solid #765d32;background:#8b6e3d33;display:flex;align-items:center;justify-content:center;
+ color:#705934;font:italic 13px "IM Fell English";pointer-events:none;
+}
+.revealer-tray:before{content:"";position:absolute;inset:7px;border:1px solid #765d3244}
+.empty-page.has-object{cursor:default}
+</style>
+</head>
+<body>
+
+<section id="intro">
+ <div class="intro">
+  <div class="seal"><span>R</span></div>
+  <div class="kicker">PRIVATE CORRESPONDENCE</div>
+  <h1>The Diary</h1>
+  <div class="sub">Property of Tom Marvolo Riddle</div>
+  <button class="enter" onclick="openDiary()">OPEN</button>
+  <div class="tiny">The pages are blank at first.</div>
+ </div>
+</section>
+
+<main id="game" class="hidden">
+ <div class="frame">
+  <div class="chrome"><span>ARCHIVE · UNDATED</span><b id="pageLabel">PAGE I</b></div>
+  <article class="book">
+
+   <section class="page" id="p1">
+    <!-- The first page is intentionally completely blank. -->
+    <div class="empty-page has-object" id="revealPage">
+      <div class="hidden-ink" id="hiddenInk">
+        The light has found what the eye could not.<br><br>
+        <i>Three is a small number. It is also enough to move a thing from its proper place.</i><br>
+        <i>I once moved every letter by the same distance. The message became mine.</i><br><br>
+        <b>GLN IRWWOV</b>
+      </div>
+      <div class="revealer-object" id="revealerObject" draggable="false"><span>REVEALER</span></div>
+      <div class="revealer-tray">Something useful<br>has been left here.</div>
+    </div>
+
+    <div class="center"><button class="btn hidden" id="p1next" onclick="go(2)">TURN THE PAGE</button></div>
+    <div class="page-number">I</div>
+   </section>
+
+   <section class="page hidden" id="p2">
+    <div class="empty-page second-empty" id="secondPage">
+      <div class="second-veil"><div class="veil-mark">✦</div></div>
+      <div class="second-ink">
+        <div class="label">THE NAME</div>
+        <h2>A Reflection</h2>
+        <div class="rule"></div>
+        <div class="prose">
+          <p class="drop">Names are mirrors.</p>
+          <p>Some mirrors reverse a face. Some reverse a word. The clever ones do not announce which.</p>
+          <p class="center">I have left mine facing you.</p>
+        </div>
+        <div class="puzzle">
+          <div class="cipher">GLN IRWWOV</div>
+          <div class="clue">“I moved each letter together, never changing the distance between them.<br>Three steps from its proper place was enough to hide a name.”</div>
+          <div class="row">
+            <input id="nameInput" autocomplete="off" placeholder="The name hidden in the reflection…">
+            <button class="btn" onclick="event.stopPropagation();solveName()">REVEAL</button>
+          </div>
+          <div id="nameFeedback" class="feedback"></div>
+        </div>
+        <div class="center"><button class="btn hidden" id="p2next" onclick="event.stopPropagation();go(3)">TURN THE PAGE</button></div>
+      </div>
+    </div>
+    <div class="page-number">II</div>
+   </section>
+
+   <section class="page hidden" id="p3">
+    <div class="label">THE LAST ENTRY</div>
+    <h2>The Place</h2>
+    <div class="rule"></div>
+    <div class="prose">
+      <p class="drop">Now you have the name I used.</p>
+      <p>There is one thing left. A place, written so that ordinary eyes will pass over it.</p>
+      <p>Do not ask the numbers to speak yet. They have not been given their clock.</p>
+    </div>
+
+    <div class="puzzle">
+      <div class="cipher">TZRMHSLV</div>
+      <div class="clue">
+       “The same little trick again. Every letter has been nudged the same distance.
+       Do not undo more than you need. The name is waiting three places away.”
+      </div>
+      <div class="row">
+       <input id="placeInput" autocomplete="off" placeholder="The place hidden in the reflection…">
+       <button class="btn" onclick="solvePlace()">REVEAL</button>
+      </div>
+      <div id="placeFeedback" class="feedback"></div>
+    </div>
+
+    <div id="clockUnlock" class="hidden">
+      <div class="clock-wrap">
+       <div class="clock" id="clock">
+        <div class="num" id="nums"></div>
+        <div class="hand hour" id="hour"></div>
+        <div class="hand minute" id="minute"></div>
+       </div>
+       <div class="clock-prose">
+        “A clock has two hands, yet I have no use for disagreement.<br>
+        <b>Let the minute hand point to the hour it serves.</b><br>
+        When both hands acknowledge six, the diary will speak.”
+       </div>
+       <div class="clock-note">The hands are waiting for you.</div>
+      </div>
+    </div>
+
+    <div id="finalReveal" class="hidden">
+      <div class="final">Gainsbourg at 6:30</div>
+      <div class="final-sub">The ink dries. The diary closes itself.</div>
+      <div id="redirectCountdown" class="hidden"></div>
+    </div>
+    <div class="page-number">III</div>
+   </section>
+
+  </article>
+ </div>
+</main>
+
+<script>
+let page=1, scan=0, dragging=null, hourDeg=0, minuteDeg=0;
+
+function openDiary(){
+ document.getElementById('intro').classList.add('hidden');
+ document.getElementById('game').classList.remove('hidden');
+ initRevealer();
+}
+
+function go(n){
+ document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+ document.getElementById('p'+n).classList.remove('hidden');
+ page=n;
+ document.getElementById('pageLabel').textContent='PAGE '+['I','II','III'][n-1];
+ document.querySelector('.book').animate(
+  [{transform:'rotateY(0)'},{transform:'rotateY(-1.5deg)'},{transform:'rotateY(0)'}],
+  {duration:650,easing:'ease-in-out'}
+ );
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function initRevealer(){
+ const area=document.getElementById('revealPage');
+ const obj=document.getElementById('revealerObject');
+ const ink=document.getElementById('hiddenInk');
+ let dragging=false, offsetX=0, offsetY=0, revealed=0, lastX=0, lastY=0;
+
+ // Start with the revealer in the lower-right "tray".
+ obj.style.left=(area.clientWidth-165)+'px';
+ obj.style.top=(area.clientHeight-52)+'px';
+
+ obj.addEventListener('pointerdown',e=>{
+   dragging=true;
+   obj.classList.add('dragging');
+   const r=obj.getBoundingClientRect();
+   offsetX=e.clientX-r.left;
+   offsetY=e.clientY-r.top;
+   obj.setPointerCapture(e.pointerId);
+   e.preventDefault();
+   e.stopPropagation();
+ });
+
+ obj.addEventListener('pointermove',e=>{
+   if(!dragging)return;
+   const ar=area.getBoundingClientRect();
+   let x=e.clientX-ar.left-offsetX;
+   let y=e.clientY-ar.top-offsetY;
+   x=Math.max(0,Math.min(area.clientWidth-obj.offsetWidth,x));
+   y=Math.max(0,Math.min(area.clientHeight-obj.offsetHeight,y));
+   obj.style.left=x+'px';obj.style.top=y+'px';
+
+   // Only the revealer creates a reveal trail. Moving the cursor alone does nothing.
+   const cx=x+obj.offsetWidth/2, cy=y+obj.offsetHeight/2;
+   if(lastX){
+     revealed+=Math.hypot(cx-lastX,cy-lastY);
+     if(revealed>35) ink.classList.add('revealed');
+   }
+   lastX=cx;lastY=cy;
+
+   // Once the revealer has been swept around the page, the hidden writing is complete.
+   if(revealed>950){
+     document.getElementById('p1next').classList.remove('hidden');
+   }
+   e.preventDefault();
+   e.stopPropagation();
+ });
+
+ function finish(){
+   dragging=false;obj.classList.remove('dragging');lastX=0;lastY=0;
+ }
+ obj.addEventListener('pointerup',finish);
+ obj.addEventListener('pointercancel',finish);
+}
+function norm(s){return s.toLowerCase().replace(/[^a-z]/g,'')}
+
+document.getElementById('secondPage').addEventListener('click',function(){this.classList.add('revealed')});
+function solveName(){
+ const i=document.getElementById('nameInput'),f=document.getElementById('nameFeedback');
+ if(norm(i.value)==='tomriddle'){
+  f.className='feedback good';f.textContent='The diary remembers.';
+  document.getElementById('p2next').classList.remove('hidden');
+ }else{
+  f.className='feedback bad';f.textContent='The reflection is not yet true.';
+  i.classList.add('shake');setTimeout(()=>i.classList.remove('shake'),350);
+ }
+}
+function solvePlace(){
+ const i=document.getElementById('placeInput'),f=document.getElementById('placeFeedback');
+ if(norm(i.value)==='gainsbourg'){
+  f.className='feedback good';f.textContent='The place returns from the mirror.';
+  document.getElementById('clockUnlock').classList.remove('hidden');buildClock();
+ }else{
+  f.className='feedback bad';f.textContent='The reflected letters still hide their meaning.';
+  i.classList.add('shake');setTimeout(()=>i.classList.remove('shake'),350);
+ }
+}
+function buildClock(){
+ const nums=document.getElementById('nums');nums.innerHTML='';
+ for(let i=1;i<=12;i++){
+  const el=document.createElement('span'),ang=(i*30-90)*Math.PI/180,rad=42;
+  el.textContent=i;el.style.left=(50+rad*Math.cos(ang))+'%';el.style.top=(50+rad*Math.sin(ang))+'%';nums.appendChild(el);
+ }
+ setHand('hour',0);setHand('minute',180);
+ const c=document.getElementById('clock');
+ c.addEventListener('pointerdown',e=>{
+  if(!placeSolved)return;
+  const unlocked=c.classList.contains('minute-unlocked');
+  const m=document.getElementById('minute').getBoundingClientRect();
+  const nearM=e.clientX>=m.left-24&&e.clientX<=m.right+24&&e.clientY>=m.top-24&&e.clientY<=m.bottom+24;
+  dragging=(unlocked&&nearM)?'minute':'hour';
+  c.setPointerCapture(e.pointerId);updateClockFromPointer(e);e.preventDefault();
+ });
+ c.addEventListener('pointermove',e=>{if(dragging)updateClockFromPointer(e)});
+ c.addEventListener('pointerup',e=>{
+  if(dragging==='hour'){
+   const d=Math.min(Math.abs(hourDeg-180),360-Math.abs(hourDeg-180));
+   if(d<42){
+    c.classList.add('minute-unlocked');
+    document.querySelector('.clock-note').textContent='The hour has been accepted. Now move the minute hand.';
+   }
+  }
+  dragging=null;e.preventDefault();
+ });
+ c.addEventListener('pointercancel',()=>dragging=null);
+}
+function angle(e){
+ const c=document.getElementById('clock').getBoundingClientRect();
+ const x=e.clientX-(c.left+c.width/2),y=e.clientY-(c.top+c.height/2);
+ let a=Math.atan2(x,-y)*180/Math.PI;if(a<0)a+=360;return a;
+}
+function updateClockFromPointer(e){setHand(dragging,angle(e))}
+document.getElementById('secondPage').addEventListener('click',function(){this.classList.add('revealed')});
+function solveName(){
+ const i=document.getElementById('nameInput'),f=document.getElementById('nameFeedback');
+ if(norm(i.value)==='tomriddle'){
+  f.className='feedback good';f.textContent='The diary remembers.';
+  document.getElementById('p2next').classList.remove('hidden');
+ }else{
+  f.className='feedback bad';f.textContent='The reflection is not yet true.';
+  i.classList.add('shake');setTimeout(()=>i.classList.remove('shake'),350);
+ }
+}
+function solvePlace(){
+ const i=document.getElementById('placeInput'),f=document.getElementById('placeFeedback');
+ if(norm(i.value)==='gainsbourg'){
+  f.className='feedback good';f.textContent='The place returns from the mirror.';
+  document.getElementById('clockUnlock').classList.remove('hidden');buildClock();
+ }else{
+  f.className='feedback bad';f.textContent='The reflected letters still hide their meaning.';
+  i.classList.add('shake');setTimeout(()=>i.classList.remove('shake'),350);
+ }
+}
+function buildClock(){
+ const nums=document.getElementById('nums');nums.innerHTML='';
+ for(let i=1;i<=12;i++){
+  const s=document.createElement('span'),a=(i*30-90)*Math.PI/180,rad=42;
+  s.textContent=i;s.style.left=(50+rad*Math.cos(a))+'%';s.style.top=(50+rad*Math.sin(a))+'%';nums.appendChild(s);
+ }
+ setHand('hour',0);setHand('minute',0);
+ const c=document.getElementById('clock');
+ c.addEventListener('pointerdown',e=>{dragging=nearestHand(e);c.setPointerCapture(e.pointerId)});
+ c.addEventListener('pointermove',e=>{if(dragging)setHand(dragging,angle(e))});
+ c.addEventListener('pointerup',()=>{dragging=null});
+ c.addEventListener('pointercancel',()=>{dragging=null});
+}
+function angle(e){
+ const c=document.getElementById('clock').getBoundingClientRect();
+ const x=e.clientX-(c.left+c.width/2),y=e.clientY-(c.top+c.height/2);
+ let a=Math.atan2(x,-y)*180/Math.PI;if(a<0)a+=360;return a;
+}
+function nearestHand(e){
+ const c=document.getElementById('clock').getBoundingClientRect();
+ const d=Math.hypot(e.clientX-(c.left+c.width/2),e.clientY-(c.top+c.height/2));
+ return d>c.width*.29?'minute':'hour';
+}
+function setHand(which,a){
+ document.getElementById(which).style.transform='rotate('+a+'deg)';
+ if(which==='hour')hourDeg=a;else minuteDeg=a;
+ checkClock();
+}
+let redirectScheduled = false;
+function checkClock(){
+ const h=Math.min(Math.abs(hourDeg-180),360-Math.abs(hourDeg-180));
+ const m=Math.min(Math.abs(minuteDeg-180),360-Math.abs(minuteDeg-180));
+ const h630=Math.min(Math.abs(hourDeg-195),360-Math.abs(hourDeg-195));
+ if((h<42&&m<42)||(h630<45&&m<45)){
+  document.getElementById('finalReveal').classList.remove('hidden');
+  document.querySelector('.clock-note').textContent='The hands agree.';
+  if(!redirectScheduled){
+   redirectScheduled = true;
+   const countdown = document.getElementById('redirectCountdown');
+   let seconds = 5;
+   countdown.textContent = 'The diary closes in 5…';
+   countdown.classList.remove('hidden');
+   const timer = setInterval(() => {
+    seconds--;
+    if(seconds > 0){
+     countdown.textContent = `The diary closes in ${seconds}…`;
+    } else {
+     clearInterval(timer);
+     window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    }
+   }, 1000);
+  }
+ }
+}
+</script>
+</body>
+</html>
