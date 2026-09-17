@@ -272,14 +272,13 @@ function initRevealer(){
    const cx=x+obj.offsetWidth/2, cy=y+obj.offsetHeight/2;
    if(lastX){
      revealed+=Math.hypot(cx-lastX,cy-lastY);
-     if(revealed>35) ink.classList.add('revealed');
+     if(revealed>35){
+       ink.classList.add('revealed');
+       document.getElementById('p1next').classList.remove('hidden');
+     }
    }
    lastX=cx;lastY=cy;
 
-   // Once the revealer has been swept around the page, the hidden writing is complete.
-   if(revealed>950){
-     document.getElementById('p1next').classList.remove('hidden');
-   }
    e.preventDefault();
    e.stopPropagation();
  });
